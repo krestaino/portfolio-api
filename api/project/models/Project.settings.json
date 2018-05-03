@@ -11,7 +11,8 @@
   "attributes": {
     "title": {
       "multiple": false,
-      "type": "string"
+      "type": "string",
+      "unique": true
     },
     "type": {
       "multiple": false,
