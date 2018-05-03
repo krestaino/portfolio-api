@@ -11,8 +11,7 @@
   "attributes": {
     "title": {
       "multiple": false,
-      "type": "string",
-      "unique": true
+      "type": "string"
     },
     "type": {
       "multiple": false,
@@ -43,6 +42,11 @@
       "model": "file",
       "via": "related",
       "plugin": "upload"
+    },
+    "slug": {
+      "multiple": false,
+      "type": "string",
+      "unique": true
     }
   }
 }
