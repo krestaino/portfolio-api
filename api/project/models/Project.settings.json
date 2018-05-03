@@ -1,0 +1,47 @@
+{
+  "connection": "default",
+  "collectionName": "project",
+  "info": {
+    "name": "project",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "multiple": false,
+      "type": "string"
+    },
+    "type": {
+      "multiple": false,
+      "type": "string"
+    },
+    "github": {
+      "multiple": false,
+      "type": "string"
+    },
+    "url": {
+      "multiple": false,
+      "type": "string"
+    },
+    "description": {
+      "multiple": false,
+      "type": "text"
+    },
+    "tags": {
+      "multiple": false,
+      "type": "string"
+    },
+    "screenshots": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "thumbnail": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    }
+  }
+}
