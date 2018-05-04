@@ -5,5 +5,24 @@
         "appearance": ""
       }
     }
+  },
+  "experience": {
+    "attributes": {
+      "title": {
+        "appearance": ""
+      },
+      "company": {
+        "appearance": ""
+      },
+      "location": {
+        "appearance": ""
+      },
+      "work_from": {
+        "appearance": ""
+      },
+      "work_to": {
+        "appearance": ""
+      }
+    }
   }
 }

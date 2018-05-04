@@ -2,40 +2,40 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/project",
-      "handler": "Project.find",
+      "path": "/job",
+      "handler": "Job.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/project/:_id",
-      "handler": "Project.findOne",
+      "path": "/job/:_id",
+      "handler": "Job.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/project",
-      "handler": "Project.create",
+      "path": "/job",
+      "handler": "Job.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/project/:_id",
-      "handler": "Project.update",
+      "path": "/job/:_id",
+      "handler": "Job.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/project/:_id",
-      "handler": "Project.destroy",
+      "path": "/job/:_id",
+      "handler": "Job.destroy",
       "config": {
         "policies": []
       }
