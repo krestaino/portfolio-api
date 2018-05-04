@@ -24,5 +24,24 @@
         "appearance": ""
       }
     }
+  },
+  "job": {
+    "attributes": {
+      "title": {
+        "appearance": ""
+      },
+      "company": {
+        "appearance": ""
+      },
+      "location": {
+        "appearance": ""
+      },
+      "from": {
+        "appearance": ""
+      },
+      "to": {
+        "appearance": ""
+      }
+    }
   }
 }
