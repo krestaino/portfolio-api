@@ -1,0 +1,38 @@
+{
+  "connection": "default",
+  "collectionName": "article",
+  "info": {
+    "name": "article",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "multiple": false,
+      "type": "string"
+    },
+    "body": {
+      "multiple": false,
+      "type": "text"
+    },
+    "publishAt": {
+      "multiple": false,
+      "type": "date"
+    },
+    "teaserText": {
+      "multiple": false,
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "slug": {
+      "multiple": false,
+      "type": "string"
+    }
+  }
+}

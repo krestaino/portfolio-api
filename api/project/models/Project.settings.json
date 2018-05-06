@@ -47,6 +47,10 @@
       "multiple": false,
       "type": "string",
       "unique": true
+    },
+    "order": {
+      "multiple": false,
+      "type": "integer"
     }
   }
 }

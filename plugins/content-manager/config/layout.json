@@ -3,6 +3,9 @@
     "attributes": {
       "slug": {
         "appearance": ""
+      },
+      "order": {
+        "appearance": ""
       }
     }
   },
@@ -40,6 +43,25 @@
         "appearance": ""
       },
       "to": {
+        "appearance": ""
+      }
+    }
+  },
+  "article": {
+    "attributes": {
+      "title": {
+        "appearance": ""
+      },
+      "body": {
+        "appearance": "WYSIWYG"
+      },
+      "publishAt": {
+        "appearance": ""
+      },
+      "previewText": {
+        "appearance": ""
+      },
+      "slug": {
         "appearance": ""
       }
     }
