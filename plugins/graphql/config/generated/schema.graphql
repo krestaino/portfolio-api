@@ -70,7 +70,7 @@ type UploadFile {
   hash: String
   ext: String
   mime: String
-  size: Float
+  size: String
   url: String
   provider: String
   related(sort: String, limit: Int, start: Int, where: JSON): [Morph]

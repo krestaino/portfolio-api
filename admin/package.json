@@ -1,27 +1,27 @@
 {
-  "_from": "strapi-admin@3.0.0-alpha.12.0.1",
-  "_id": "strapi-admin@3.0.0-alpha.12.0.1",
+  "_from": "strapi-admin@3.0.0-alpha.12.1.3",
+  "_id": "strapi-admin@3.0.0-alpha.12.1.3",
   "_inBundle": false,
-  "_integrity": "sha512-mKI9OmqAC7CDEK/UDD7iExQorjKDPSZZF84y1+bX02AxIN4dfngBkaABa3RYb11FTtdZD0AH2Es90SLiejBYgQ==",
+  "_integrity": "sha512-CgHlBfkMOuN429FmqZiAJV9ESgmSk9d+DsPEvPSCgvkqadmeReY8nxGwQg81wUF9coOnCjIpgY9jzVqz2DyfDw==",
   "_location": "/strapi/strapi-admin",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "strapi-admin@3.0.0-alpha.12.0.1",
+    "raw": "strapi-admin@3.0.0-alpha.12.1.3",
     "name": "strapi-admin",
     "escapedName": "strapi-admin",
-    "rawSpec": "3.0.0-alpha.12.0.1",
+    "rawSpec": "3.0.0-alpha.12.1.3",
     "saveSpec": null,
-    "fetchSpec": "3.0.0-alpha.12.0.1"
+    "fetchSpec": "3.0.0-alpha.12.1.3"
   },
   "_requiredBy": [
     "/strapi/strapi-generate-admin"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-admin/-/strapi-admin-3.0.0-alpha.12.0.1.tgz",
-  "_shasum": "bb7ac9d275b1e3ebebd570361bbd5ede94029ece",
-  "_spec": "strapi-admin@3.0.0-alpha.12.0.1",
-  "_where": "/Users/restaik/.nvm/versions/node/v8.9.4/lib/node_modules/strapi/node_modules/strapi-generate-admin",
+  "_resolved": "https://registry.npmjs.org/strapi-admin/-/strapi-admin-3.0.0-alpha.12.1.3.tgz",
+  "_shasum": "3df84bbba6c9d1ade702dd04db6c9822f7db631c",
+  "_spec": "strapi-admin@3.0.0-alpha.12.1.3",
+  "_where": "/Users/restaik/.nvm/versions/node/v10.0.0/lib/node_modules/strapi/node_modules/strapi-generate-admin",
   "author": {
     "name": "Strapi"
   },
@@ -38,12 +38,12 @@
   "description": "Strapi Admin",
   "devDependencies": {
     "sanitize.css": "^4.1.0",
-    "strapi-helper-plugin": "3.0.0-alpha.12.0.1",
-    "strapi-utils": "3.0.0-alpha.12.0.1"
+    "strapi-helper-plugin": "3.0.0-alpha.12.1.3",
+    "strapi-utils": "3.0.0-alpha.12.1.3"
   },
   "engines": {
     "node": ">= 9.0.0",
-    "npm": ">= 3.0.0"
+    "npm": ">= 5.0.0"
   },
   "homepage": "https://github.com/strapi/strapi-admin#readme",
   "license": "MIT",
@@ -67,21 +67,14 @@
     "generate": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/plop --plopfile ./node_modules/strapi-helper-plugin/lib/internals/generators/index.js",
     "lint": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/eslint --ignore-path ./admin/.gitignore --ignore-pattern build --config ./node_modules/strapi-helper-plugin/lib/internals/eslint/.eslintrc.json admin",
     "preanalyze": "npm run analyze:clean",
+    "prebuild": "APP_PATH=$APP_PATH node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=production IS_ADMIN=true node ./node_modules/strapi-helper-plugin/lib/internals/scripts/loadAdminConfigurations.js",
     "prepublishOnly": "npm run build",
+    "presetup": "node ./scripts/preSetup.js",
+    "prestart": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development PORT=4000 IS_ADMIN=true node ./node_modules/strapi-helper-plugin/lib/internals/scripts/loadAdminConfigurations.js",
     "prettier": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/prettier --single-quote --trailing-comma es5 --write \"{admin,__{tests,mocks}__}/**/*.js\"",
     "setup": "node ./scripts/setup.js",
     "start": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development PORT=4000 IS_ADMIN=true node ./node_modules/strapi-helper-plugin/lib/server",
     "test": "npm run lint"
   },
-  "version": "3.0.0-alpha.12.0.1",
-  "warnings": [
-    {
-      "code": "ENOTSUP",
-      "required": {
-        "node": ">= 9.0.0",
-        "npm": ">= 3.0.0"
-      },
-      "pkgid": "strapi-admin@3.0.0-alpha.12.0.1"
-    }
-  ]
+  "version": "3.0.0-alpha.12.1.3"
 }
