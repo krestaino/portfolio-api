@@ -9,6 +9,10 @@
     "timestamps": true
   },
   "attributes": {
+    "order": {
+      "multiple": false,
+      "type": "integer"
+    },
     "title": {
       "multiple": false,
       "type": "string"
@@ -16,6 +20,11 @@
     "type": {
       "multiple": false,
       "type": "string"
+    },
+    "slug": {
+      "multiple": false,
+      "type": "string",
+      "unique": true
     },
     "github": {
       "multiple": false,
@@ -42,15 +51,6 @@
       "model": "file",
       "via": "related",
       "plugin": "upload"
-    },
-    "slug": {
-      "multiple": false,
-      "type": "string",
-      "unique": true
-    },
-    "order": {
-      "multiple": false,
-      "type": "integer"
     }
   }
 }

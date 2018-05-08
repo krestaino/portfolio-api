@@ -32,15 +32,15 @@ type Project {
   _id: String
   created_at: String
   updated_at: String
+  order: Int
   title: String
   type: String
+  slug: String
   github: String
   url: String
   description: String
   tags: String
   thumbnail: UploadFile
-  slug: String
-  order: Int
   screenshots(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
 }
 
