@@ -10,37 +10,32 @@
   },
   "attributes": {
     "order": {
-      "multiple": false,
-      "type": "integer"
-    },
-    "title": {
-      "multiple": false,
-      "type": "string"
-    },
-    "type": {
-      "multiple": false,
-      "type": "string"
-    },
-    "slug": {
-      "multiple": false,
-      "type": "string",
+      "type": "integer",
+      "required": true,
       "unique": true
     },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
     "github": {
-      "multiple": false,
       "type": "string"
     },
     "url": {
-      "multiple": false,
       "type": "string"
     },
     "description": {
-      "multiple": false,
-      "type": "text"
-    },
-    "tags": {
-      "multiple": false,
-      "type": "string"
+      "type": "text",
+      "required": true
     },
     "screenshots": {
       "collection": "file",
@@ -51,6 +46,11 @@
       "model": "file",
       "via": "related",
       "plugin": "upload"
+    },
+    "tags": {
+      "collection": "tag",
+      "via": "projects",
+      "dominant": true
     }
   }
 }

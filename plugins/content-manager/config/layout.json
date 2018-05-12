@@ -1,1 +1,26 @@
-{}
+{
+  "project": {
+    "attributes": {
+      "description": {
+        "appearance": "WYSIWYG"
+      }
+    }
+  },
+  "article": {
+    "attributes": {
+      "body": {
+        "appearance": "WYSIWYG"
+      }
+    }
+  },
+  "tag": {
+    "attributes": {
+      "title": {
+        "appearance": ""
+      },
+      "slug": {
+        "appearance": ""
+      }
+    }
+  }
+}

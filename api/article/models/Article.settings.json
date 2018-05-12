@@ -10,20 +10,20 @@
   },
   "attributes": {
     "title": {
-      "multiple": false,
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "body": {
-      "multiple": false,
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "publishAt": {
-      "multiple": false,
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "teaserText": {
-      "multiple": false,
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "image": {
       "model": "file",
@@ -31,8 +31,9 @@
       "plugin": "upload"
     },
     "slug": {
-      "multiple": false,
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

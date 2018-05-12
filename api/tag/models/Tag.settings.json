@@ -1,8 +1,8 @@
 {
   "connection": "default",
-  "collectionName": "job",
+  "collectionName": "",
   "info": {
-    "name": "job",
+    "name": "tag",
     "description": ""
   },
   "options": {
@@ -10,24 +10,18 @@
   },
   "attributes": {
     "title": {
+      "unique": true,
       "type": "string",
       "required": true
     },
-    "company": {
+    "slug": {
+      "unique": true,
       "type": "string",
       "required": true
     },
-    "location": {
-      "type": "string",
-      "required": true
-    },
-    "from": {
-      "type": "string",
-      "required": true
-    },
-    "to": {
-      "type": "string",
-      "required": true
+    "projects": {
+      "collection": "project",
+      "via": "tags"
     }
   }
 }

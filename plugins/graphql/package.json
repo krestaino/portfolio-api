@@ -21,7 +21,7 @@
   "_resolved": "https://registry.npmjs.org/strapi-plugin-graphql/-/strapi-plugin-graphql-3.0.0-alpha.12.1.3.tgz",
   "_shasum": "590b295cd880209f5c44757ced9fe1a747e7efe6",
   "_spec": "strapi-plugin-graphql@alpha",
-  "_where": "/Users/restaik/Projects/portfolio-api",
+  "_where": "/mnt/c/Users/Kevin/Projects/portfolio-api",
   "author": {
     "name": "A Strapi developer"
   },
