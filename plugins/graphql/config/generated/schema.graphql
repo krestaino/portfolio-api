@@ -1,24 +1,24 @@
 type Article {
-  _id: String
-  created_at: String
-  updated_at: String
-  title: String
-  body: String
-  publishAt: String
-  teaserText: String
+  _id: ID!
+  createdAt: String!
+  updatedAt: String!
+  title: String!
+  body: String!
+  publishAt: String!
+  teaserText: String!
   image: UploadFile
-  slug: String
+  slug: String!
 }
 
 type Job {
-  _id: String
-  created_at: String
-  updated_at: String
-  title: String
-  company: String
-  location: String
-  from: String
-  to: String
+  _id: ID!
+  createdAt: String!
+  updatedAt: String!
+  title: String!
+  company: String!
+  location: String!
+  from: String!
+  to: String!
 }
 
 """
@@ -29,77 +29,77 @@ scalar JSON
 union Morph = Article | Job | Project | Tag | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
 
 type Project {
-  _id: String
-  created_at: String
-  updated_at: String
-  order: Int
-  title: String
-  type: String
-  slug: String
+  _id: ID!
+  createdAt: String!
+  updatedAt: String!
+  order: Int!
+  title: String!
+  type: String!
+  slug: String!
   github: String
   url: String
-  description: String
+  description: String!
   thumbnail: UploadFile
   screenshots(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
   tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
 }
 
 type Query {
-  article(id: String!): Article
+  article(id: ID!): Article
   articles(sort: String, limit: Int, start: Int, where: JSON): [Article]
-  job(id: String!): Job
+  job(id: ID!): Job
   jobs(sort: String, limit: Int, start: Int, where: JSON): [Job]
-  project(id: String!): Project
+  project(id: ID!): Project
   projects(sort: String, limit: Int, start: Int, where: JSON): [Project]
-  tag(id: String!): Tag
+  tag(id: ID!): Tag
   tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
   files(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
-  role(id: String!): UsersPermissionsRole
+  role(id: ID!): UsersPermissionsRole
 
   """
   Retrieve all the existing roles. You can't apply filters on this query.
   """
   roles(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsRole]
-  user(id: String!): UsersPermissionsUser
+  user(id: ID!): UsersPermissionsUser
   users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
 }
 
 type Tag {
-  _id: String
-  created_at: String
-  updated_at: String
-  title: String
-  slug: String
+  _id: ID!
+  createdAt: String!
+  updatedAt: String!
+  title: String!
+  slug: String!
   projects(sort: String, limit: Int, start: Int, where: JSON): [Project]
 }
 
 type UploadFile {
-  _id: String
-  created_at: String
-  updated_at: String
-  name: String
-  hash: String
+  _id: ID!
+  createdAt: String!
+  updatedAt: String!
+  name: String!
+  hash: String!
   ext: String
-  mime: String
-  size: String
-  url: String
-  provider: String
+  mime: String!
+  size: String!
+  url: String!
+  provider: String!
   related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
 }
 
 type UsersPermissionsPermission {
-  _id: String
-  type: String
-  controller: String
-  action: String
-  enabled: Boolean
-  policy: String
+  _id: ID!
+  type: String!
+  controller: String!
+  action: String!
+  enabled: Boolean!
+  policy: String!
   role: UsersPermissionsRole
 }
 
 type UsersPermissionsRole {
-  _id: String
-  name: String
+  _id: ID!
+  name: String!
   description: String
   type: String
   users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
@@ -107,11 +107,9 @@ type UsersPermissionsRole {
 }
 
 type UsersPermissionsUser {
-  _id: String
-  username: String
-  email: String
+  _id: ID!
+  username: String!
+  email: String!
   provider: String
-  password: String
-  resetPasswordToken: String
   role: UsersPermissionsRole
 }
