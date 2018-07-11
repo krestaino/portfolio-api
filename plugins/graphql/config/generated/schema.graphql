@@ -93,7 +93,7 @@ type UsersPermissionsPermission {
   controller: String!
   action: String!
   enabled: Boolean!
-  policy: String!
+  policy: String
   role: UsersPermissionsRole
 }
 
