@@ -1,19 +1,24 @@
 type Article {
   _id: ID!
-  createdAt: String!
-  updatedAt: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   title: String!
   body: String!
-  publishAt: String!
+  publishAt: DateTime!
   teaserText: String!
   image: UploadFile
   slug: String!
 }
 
+"""
+The `DateTime` scalar represents a date and time following the ISO 8601 standard
+"""
+scalar DateTime
+
 type Job {
   _id: ID!
-  createdAt: String!
-  updatedAt: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   title: String!
   company: String!
   location: String!
@@ -30,8 +35,8 @@ union Morph = Article | Job | Project | Tag | UploadFile | UsersPermissionsPermi
 
 type Project {
   _id: ID!
-  createdAt: String!
-  updatedAt: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   order: Int!
   title: String!
   type: String!
@@ -66,8 +71,8 @@ type Query {
 
 type Tag {
   _id: ID!
-  createdAt: String!
-  updatedAt: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   title: String!
   slug: String!
   projects(sort: String, limit: Int, start: Int, where: JSON): [Project]
@@ -75,8 +80,8 @@ type Tag {
 
 type UploadFile {
   _id: ID!
-  createdAt: String!
-  updatedAt: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   name: String!
   hash: String!
   ext: String
