@@ -24,6 +24,7 @@ type Job {
   location: String!
   from: String!
   to: String!
+  order: Int
 }
 
 """

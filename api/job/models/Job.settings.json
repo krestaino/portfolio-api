@@ -28,6 +28,9 @@
     "to": {
       "type": "string",
       "required": true
+    },
+    "order": {
+      "type": "integer"
     }
   }
 }
