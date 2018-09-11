@@ -10,6 +10,73 @@ type Article {
   slug: String!
 }
 
+type ArticleAggregator {
+  count: Int
+}
+
+type ArticleConnection {
+  values: [Article]
+  groupBy: ArticleGroupBy
+  aggregate: ArticleAggregator
+}
+
+type ArticleConnection_id {
+  key: ID
+  connection: ArticleConnection
+}
+
+type ArticleConnectionBody {
+  key: String
+  connection: ArticleConnection
+}
+
+type ArticleConnectionCreatedAt {
+  key: DateTime
+  connection: ArticleConnection
+}
+
+type ArticleConnectionImage {
+  key: ID
+  connection: ArticleConnection
+}
+
+type ArticleConnectionPublishAt {
+  key: DateTime
+  connection: ArticleConnection
+}
+
+type ArticleConnectionSlug {
+  key: String
+  connection: ArticleConnection
+}
+
+type ArticleConnectionTeaserText {
+  key: String
+  connection: ArticleConnection
+}
+
+type ArticleConnectionTitle {
+  key: String
+  connection: ArticleConnection
+}
+
+type ArticleConnectionUpdatedAt {
+  key: DateTime
+  connection: ArticleConnection
+}
+
+type ArticleGroupBy {
+  _id: [ArticleConnection_id]
+  createdAt: [ArticleConnectionCreatedAt]
+  updatedAt: [ArticleConnectionUpdatedAt]
+  title: [ArticleConnectionTitle]
+  body: [ArticleConnectionBody]
+  publishAt: [ArticleConnectionPublishAt]
+  teaserText: [ArticleConnectionTeaserText]
+  image: [ArticleConnectionImage]
+  slug: [ArticleConnectionSlug]
+}
+
 """
 The `DateTime` scalar represents a date and time following the ISO 8601 standard
 """
@@ -27,12 +94,99 @@ type Job {
   order: Int
 }
 
+type JobAggregator {
+  count: Int
+  sum: JobAggregatorSum
+  avg: JobAggregatorAvg
+  min: JobAggregatorMin
+  max: JobAggregatorMax
+}
+
+type JobAggregatorAvg {
+  order: Float
+}
+
+type JobAggregatorMax {
+  order: Float
+}
+
+type JobAggregatorMin {
+  order: Float
+}
+
+type JobAggregatorSum {
+  order: Float
+}
+
+type JobConnection {
+  values: [Job]
+  groupBy: JobGroupBy
+  aggregate: JobAggregator
+}
+
+type JobConnection_id {
+  key: ID
+  connection: JobConnection
+}
+
+type JobConnectionCompany {
+  key: String
+  connection: JobConnection
+}
+
+type JobConnectionCreatedAt {
+  key: DateTime
+  connection: JobConnection
+}
+
+type JobConnectionFrom {
+  key: String
+  connection: JobConnection
+}
+
+type JobConnectionLocation {
+  key: String
+  connection: JobConnection
+}
+
+type JobConnectionOrder {
+  key: Int
+  connection: JobConnection
+}
+
+type JobConnectionTitle {
+  key: String
+  connection: JobConnection
+}
+
+type JobConnectionTo {
+  key: String
+  connection: JobConnection
+}
+
+type JobConnectionUpdatedAt {
+  key: DateTime
+  connection: JobConnection
+}
+
+type JobGroupBy {
+  _id: [JobConnection_id]
+  createdAt: [JobConnectionCreatedAt]
+  updatedAt: [JobConnectionUpdatedAt]
+  title: [JobConnectionTitle]
+  company: [JobConnectionCompany]
+  location: [JobConnectionLocation]
+  from: [JobConnectionFrom]
+  to: [JobConnectionTo]
+  order: [JobConnectionOrder]
+}
+
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
 scalar JSON
 
-union Morph = Article | Job | Project | Tag | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
+union Morph = Article | ArticleConnection | ArticleAggregator | ArticleGroupBy | ArticleConnection_id | ArticleConnectionCreatedAt | ArticleConnectionUpdatedAt | ArticleConnectionTitle | ArticleConnectionBody | ArticleConnectionPublishAt | ArticleConnectionTeaserText | ArticleConnectionImage | ArticleConnectionSlug | Job | JobConnection | JobAggregator | JobAggregatorSum | JobAggregatorAvg | JobAggregatorMin | JobAggregatorMax | JobGroupBy | JobConnection_id | JobConnectionCreatedAt | JobConnectionUpdatedAt | JobConnectionTitle | JobConnectionCompany | JobConnectionLocation | JobConnectionFrom | JobConnectionTo | JobConnectionOrder | Project | ProjectConnection | ProjectAggregator | ProjectGroupBy | ProjectConnection_id | ProjectConnectionCreatedAt | ProjectConnectionUpdatedAt | ProjectConnectionOrder | ProjectConnectionTitle | ProjectConnectionType | ProjectConnectionSlug | ProjectConnectionGithub | ProjectConnectionUrl | ProjectConnectionDescription | ProjectConnectionThumbnail | Tag | TagConnection | TagAggregator | TagGroupBy | TagConnection_id | TagConnectionCreatedAt | TagConnectionUpdatedAt | TagConnectionTitle | TagConnectionSlug | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionResetPasswordToken | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
 
 type Project {
   _id: ID!
@@ -50,24 +204,110 @@ type Project {
   tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
 }
 
+type ProjectAggregator {
+  count: Int
+}
+
+type ProjectConnection {
+  values: [Project]
+  groupBy: ProjectGroupBy
+  aggregate: ProjectAggregator
+}
+
+type ProjectConnection_id {
+  key: ID
+  connection: ProjectConnection
+}
+
+type ProjectConnectionCreatedAt {
+  key: DateTime
+  connection: ProjectConnection
+}
+
+type ProjectConnectionDescription {
+  key: String
+  connection: ProjectConnection
+}
+
+type ProjectConnectionGithub {
+  key: String
+  connection: ProjectConnection
+}
+
+type ProjectConnectionOrder {
+  key: Int
+  connection: ProjectConnection
+}
+
+type ProjectConnectionSlug {
+  key: String
+  connection: ProjectConnection
+}
+
+type ProjectConnectionThumbnail {
+  key: ID
+  connection: ProjectConnection
+}
+
+type ProjectConnectionTitle {
+  key: String
+  connection: ProjectConnection
+}
+
+type ProjectConnectionType {
+  key: String
+  connection: ProjectConnection
+}
+
+type ProjectConnectionUpdatedAt {
+  key: DateTime
+  connection: ProjectConnection
+}
+
+type ProjectConnectionUrl {
+  key: String
+  connection: ProjectConnection
+}
+
+type ProjectGroupBy {
+  _id: [ProjectConnection_id]
+  createdAt: [ProjectConnectionCreatedAt]
+  updatedAt: [ProjectConnectionUpdatedAt]
+  order: [ProjectConnectionOrder]
+  title: [ProjectConnectionTitle]
+  type: [ProjectConnectionType]
+  slug: [ProjectConnectionSlug]
+  github: [ProjectConnectionGithub]
+  url: [ProjectConnectionUrl]
+  description: [ProjectConnectionDescription]
+  thumbnail: [ProjectConnectionThumbnail]
+}
+
 type Query {
   article(id: ID!): Article
   articles(sort: String, limit: Int, start: Int, where: JSON): [Article]
+  articlesConnection(sort: String, limit: Int, start: Int, where: JSON): ArticleConnection
   job(id: ID!): Job
   jobs(sort: String, limit: Int, start: Int, where: JSON): [Job]
+  jobsConnection(sort: String, limit: Int, start: Int, where: JSON): JobConnection
   project(id: ID!): Project
   projects(sort: String, limit: Int, start: Int, where: JSON): [Project]
+  projectsConnection(sort: String, limit: Int, start: Int, where: JSON): ProjectConnection
   tag(id: ID!): Tag
   tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
+  tagsConnection(sort: String, limit: Int, start: Int, where: JSON): TagConnection
   files(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
   role(id: ID!): UsersPermissionsRole
 
   """
   Retrieve all the existing roles. You can't apply filters on this query.
   """
   roles(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsRole]
+  rolesConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsRoleConnection
   user(id: ID!): UsersPermissionsUser
   users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+  usersConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsUserConnection
 }
 
 type Tag {
@@ -79,18 +319,141 @@ type Tag {
   projects(sort: String, limit: Int, start: Int, where: JSON): [Project]
 }
 
+type TagAggregator {
+  count: Int
+}
+
+type TagConnection {
+  values: [Tag]
+  groupBy: TagGroupBy
+  aggregate: TagAggregator
+}
+
+type TagConnection_id {
+  key: ID
+  connection: TagConnection
+}
+
+type TagConnectionCreatedAt {
+  key: DateTime
+  connection: TagConnection
+}
+
+type TagConnectionSlug {
+  key: String
+  connection: TagConnection
+}
+
+type TagConnectionTitle {
+  key: String
+  connection: TagConnection
+}
+
+type TagConnectionUpdatedAt {
+  key: DateTime
+  connection: TagConnection
+}
+
+type TagGroupBy {
+  _id: [TagConnection_id]
+  createdAt: [TagConnectionCreatedAt]
+  updatedAt: [TagConnectionUpdatedAt]
+  title: [TagConnectionTitle]
+  slug: [TagConnectionSlug]
+}
+
 type UploadFile {
   _id: ID!
   createdAt: DateTime!
   updatedAt: DateTime!
   name: String!
   hash: String!
+  sha256: String
   ext: String
   mime: String!
   size: String!
   url: String!
   provider: String!
   related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
+}
+
+type UploadFileAggregator {
+  count: Int
+}
+
+type UploadFileConnection {
+  values: [UploadFile]
+  groupBy: UploadFileGroupBy
+  aggregate: UploadFileAggregator
+}
+
+type UploadFileConnection_id {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCreatedAt {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionExt {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHash {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionMime {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionName {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSha256 {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSize {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUpdatedAt {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileGroupBy {
+  _id: [UploadFileConnection_id]
+  createdAt: [UploadFileConnectionCreatedAt]
+  updatedAt: [UploadFileConnectionUpdatedAt]
+  name: [UploadFileConnectionName]
+  hash: [UploadFileConnectionHash]
+  sha256: [UploadFileConnectionSha256]
+  ext: [UploadFileConnectionExt]
+  mime: [UploadFileConnectionMime]
+  size: [UploadFileConnectionSize]
+  url: [UploadFileConnectionUrl]
+  provider: [UploadFileConnectionProvider]
 }
 
 type UsersPermissionsPermission {
@@ -108,14 +471,108 @@ type UsersPermissionsRole {
   name: String!
   description: String
   type: String
-  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
   permissions(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsPermission]
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+type UsersPermissionsRoleAggregator {
+  count: Int
+}
+
+type UsersPermissionsRoleConnection {
+  values: [UsersPermissionsRole]
+  groupBy: UsersPermissionsRoleGroupBy
+  aggregate: UsersPermissionsRoleAggregator
+}
+
+type UsersPermissionsRoleConnection_id {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionDescription {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionName {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionType {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleGroupBy {
+  _id: [UsersPermissionsRoleConnection_id]
+  name: [UsersPermissionsRoleConnectionName]
+  description: [UsersPermissionsRoleConnectionDescription]
+  type: [UsersPermissionsRoleConnectionType]
 }
 
 type UsersPermissionsUser {
   _id: ID!
   username: String!
   email: String!
-  provider: String
+  resetPasswordToken: String
+  confirmed: Boolean
+  blocked: Boolean
   role: UsersPermissionsRole
+}
+
+type UsersPermissionsUserAggregator {
+  count: Int
+}
+
+type UsersPermissionsUserConnection {
+  values: [UsersPermissionsUser]
+  groupBy: UsersPermissionsUserGroupBy
+  aggregate: UsersPermissionsUserAggregator
+}
+
+type UsersPermissionsUserConnection_id {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionBlocked {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionConfirmed {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionEmail {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionResetPasswordToken {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionRole {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUsername {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserGroupBy {
+  _id: [UsersPermissionsUserConnection_id]
+  username: [UsersPermissionsUserConnectionUsername]
+  email: [UsersPermissionsUserConnectionEmail]
+  resetPasswordToken: [UsersPermissionsUserConnectionResetPasswordToken]
+  confirmed: [UsersPermissionsUserConnectionConfirmed]
+  blocked: [UsersPermissionsUserConnectionBlocked]
+  role: [UsersPermissionsUserConnectionRole]
 }

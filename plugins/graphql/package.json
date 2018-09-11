@@ -1,8 +1,8 @@
 {
   "_from": "strapi-plugin-graphql@alpha",
-  "_id": "strapi-plugin-graphql@3.0.0-alpha.13.0.1",
+  "_id": "strapi-plugin-graphql@3.0.0-alpha.14",
   "_inBundle": false,
-  "_integrity": "sha512-Xfo0XHtoDYe3OQbuEbzWkryMb0moESdc3X8TCgSNSTTe2TXIf1lUjhnWlxCRFfAFaBnacfBHkztKGzlwYX6FKQ==",
+  "_integrity": "sha512-ARUqQKsiJp1OrjXVhXNmJQl8wLTrN8hzcCkl/safnc0Yj5jWAvIVhWULC2n4OiKGc7MBuam9NvUOlfbFyM/HTw==",
   "_location": "/strapi-plugin-graphql",
   "_phantomChildren": {},
   "_requested": {
@@ -18,8 +18,8 @@
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-graphql/-/strapi-plugin-graphql-3.0.0-alpha.13.0.1.tgz",
-  "_shasum": "2b2e3b942017520c70f68828eb7871d165627ea4",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-graphql/-/strapi-plugin-graphql-3.0.0-alpha.14.tgz",
+  "_shasum": "d94588edfc1ab39729a6a208b47049bd0234051f",
   "_spec": "strapi-plugin-graphql@alpha",
   "_where": "/mnt/c/Users/Kevin/Projects/portfolio-api",
   "author": {
@@ -36,7 +36,7 @@
     "graphql-type-datetime": "^0.2.2",
     "graphql-type-json": "^0.2.1",
     "pluralize": "^7.0.0",
-    "strapi-utils": "3.0.0-alpha.13.0.1"
+    "strapi-utils": "3.0.0-alpha.14"
   },
   "deprecated": false,
   "description": "This is the description of the plugin.",
@@ -69,5 +69,23 @@
     "icon": "plug",
     "description": "Description of graphql plugin."
   },
-  "version": "3.0.0-alpha.13.0.1"
+  "version": "3.0.0-alpha.14",
+  "warnings": [
+    {
+      "code": "ENOTSUP",
+      "required": {
+        "node": ">= 9.0.0",
+        "npm": ">= 5.3.0"
+      },
+      "pkgid": "strapi-plugin-graphql@3.0.0-alpha.14"
+    },
+    {
+      "code": "ENOTSUP",
+      "required": {
+        "node": ">= 9.0.0",
+        "npm": ">= 5.3.0"
+      },
+      "pkgid": "strapi-plugin-graphql@3.0.0-alpha.14"
+    }
+  ]
 }
