@@ -77,10 +77,131 @@ type ArticleGroupBy {
   slug: [ArticleConnectionSlug]
 }
 
+input ArticleInput {
+  title: String!
+  body: String!
+  publishAt: DateTime!
+  teaserText: String!
+  image: ID
+  slug: String!
+}
+
+input createArticleInput {
+  data: ArticleInput
+}
+
+type createArticlePayload {
+  article: Article
+}
+
+input createJobInput {
+  data: JobInput
+}
+
+type createJobPayload {
+  job: Job
+}
+
+input createProjectInput {
+  data: ProjectInput
+}
+
+type createProjectPayload {
+  project: Project
+}
+
+input createRoleInput {
+  data: RoleInput
+}
+
+type createRolePayload {
+  role: UsersPermissionsRole
+}
+
+input createTagInput {
+  data: TagInput
+}
+
+type createTagPayload {
+  tag: Tag
+}
+
+input createUserInput {
+  data: UserInput
+}
+
+type createUserPayload {
+  user: UsersPermissionsUser
+}
+
 """
 The `DateTime` scalar represents a date and time following the ISO 8601 standard
 """
 scalar DateTime
+
+input deleteArticleInput {
+  where: InputID
+}
+
+type deleteArticlePayload {
+  article: Article
+}
+
+input deleteJobInput {
+  where: InputID
+}
+
+type deleteJobPayload {
+  job: Job
+}
+
+input deleteProjectInput {
+  where: InputID
+}
+
+type deleteProjectPayload {
+  project: Project
+}
+
+input deleteRoleInput {
+  where: InputID
+}
+
+type deleteRolePayload {
+  role: UsersPermissionsRole
+}
+
+input deleteTagInput {
+  where: InputID
+}
+
+type deleteTagPayload {
+  tag: Tag
+}
+
+input deleteUserInput {
+  where: InputID
+}
+
+type deleteUserPayload {
+  user: UsersPermissionsUser
+}
+
+input FileInput {
+  name: String!
+  hash: String!
+  sha256: String
+  ext: String
+  mime: String!
+  size: String!
+  url: String!
+  provider: String!
+  related: [ID]
+}
+
+input InputID {
+  id: ID!
+}
 
 type Job {
   _id: ID!
@@ -181,12 +302,49 @@ type JobGroupBy {
   order: [JobConnectionOrder]
 }
 
+input JobInput {
+  title: String!
+  company: String!
+  location: String!
+  from: String!
+  to: String!
+  order: Int
+}
+
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
 scalar JSON
 
-union Morph = Article | ArticleConnection | ArticleAggregator | ArticleGroupBy | ArticleConnection_id | ArticleConnectionCreatedAt | ArticleConnectionUpdatedAt | ArticleConnectionTitle | ArticleConnectionBody | ArticleConnectionPublishAt | ArticleConnectionTeaserText | ArticleConnectionImage | ArticleConnectionSlug | Job | JobConnection | JobAggregator | JobAggregatorSum | JobAggregatorAvg | JobAggregatorMin | JobAggregatorMax | JobGroupBy | JobConnection_id | JobConnectionCreatedAt | JobConnectionUpdatedAt | JobConnectionTitle | JobConnectionCompany | JobConnectionLocation | JobConnectionFrom | JobConnectionTo | JobConnectionOrder | Project | ProjectConnection | ProjectAggregator | ProjectGroupBy | ProjectConnection_id | ProjectConnectionCreatedAt | ProjectConnectionUpdatedAt | ProjectConnectionOrder | ProjectConnectionTitle | ProjectConnectionType | ProjectConnectionSlug | ProjectConnectionGithub | ProjectConnectionUrl | ProjectConnectionDescription | ProjectConnectionThumbnail | Tag | TagConnection | TagAggregator | TagGroupBy | TagConnection_id | TagConnectionCreatedAt | TagConnectionUpdatedAt | TagConnectionTitle | TagConnectionSlug | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionResetPasswordToken | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Article | createArticlePayload | updateArticlePayload | deleteArticlePayload | ArticleConnection | ArticleAggregator | ArticleGroupBy | ArticleConnection_id | ArticleConnectionCreatedAt | ArticleConnectionUpdatedAt | ArticleConnectionTitle | ArticleConnectionBody | ArticleConnectionPublishAt | ArticleConnectionTeaserText | ArticleConnectionImage | ArticleConnectionSlug | Job | createJobPayload | updateJobPayload | deleteJobPayload | JobConnection | JobAggregator | JobAggregatorSum | JobAggregatorAvg | JobAggregatorMin | JobAggregatorMax | JobGroupBy | JobConnection_id | JobConnectionCreatedAt | JobConnectionUpdatedAt | JobConnectionTitle | JobConnectionCompany | JobConnectionLocation | JobConnectionFrom | JobConnectionTo | JobConnectionOrder | Project | createProjectPayload | updateProjectPayload | deleteProjectPayload | ProjectConnection | ProjectAggregator | ProjectGroupBy | ProjectConnection_id | ProjectConnectionCreatedAt | ProjectConnectionUpdatedAt | ProjectConnectionOrder | ProjectConnectionTitle | ProjectConnectionType | ProjectConnectionSlug | ProjectConnectionGithub | ProjectConnectionUrl | ProjectConnectionDescription | ProjectConnectionThumbnail | ProjectConnectionPlayStore | ProjectConnectionAppStore | Tag | createTagPayload | updateTagPayload | deleteTagPayload | TagConnection | TagAggregator | TagGroupBy | TagConnection_id | TagConnectionCreatedAt | TagConnectionUpdatedAt | TagConnectionTitle | TagConnectionSlug | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
+
+type Mutation {
+  createArticle(input: createArticleInput): createArticlePayload
+  updateArticle(input: updateArticleInput): updateArticlePayload
+  deleteArticle(input: deleteArticleInput): deleteArticlePayload
+  createJob(input: createJobInput): createJobPayload
+  updateJob(input: updateJobInput): updateJobPayload
+  deleteJob(input: deleteJobInput): deleteJobPayload
+  createProject(input: createProjectInput): createProjectPayload
+  updateProject(input: updateProjectInput): updateProjectPayload
+  deleteProject(input: deleteProjectInput): deleteProjectPayload
+  createTag(input: createTagInput): createTagPayload
+  updateTag(input: updateTagInput): updateTagPayload
+  deleteTag(input: deleteTagInput): deleteTagPayload
+
+  """Create a new role"""
+  createRole(input: createRoleInput): createRolePayload
+
+  """Update an existing role"""
+  updateRole(input: updateRoleInput): updateRolePayload
+
+  """Delete an existing role"""
+  deleteRole(input: deleteRoleInput): deleteRolePayload
+  createUser(input: createUserInput): createUserPayload
+  updateUser(input: updateUserInput): updateUserPayload
+  deleteUser(input: deleteUserInput): deleteUserPayload
+  upload(refId: ID, ref: String, source: String, file: Upload!): UploadFile!
+}
 
 type Project {
   _id: ID!
@@ -200,6 +358,8 @@ type Project {
   url: String
   description: String!
   thumbnail: UploadFile
+  playStore: String
+  appStore: String
   screenshots(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
   tags(sort: String, limit: Int, start: Int, where: JSON): [Tag]
 }
@@ -216,6 +376,11 @@ type ProjectConnection {
 
 type ProjectConnection_id {
   key: ID
+  connection: ProjectConnection
+}
+
+type ProjectConnectionAppStore {
+  key: String
   connection: ProjectConnection
 }
 
@@ -236,6 +401,11 @@ type ProjectConnectionGithub {
 
 type ProjectConnectionOrder {
   key: Int
+  connection: ProjectConnection
+}
+
+type ProjectConnectionPlayStore {
+  key: String
   connection: ProjectConnection
 }
 
@@ -281,6 +451,23 @@ type ProjectGroupBy {
   url: [ProjectConnectionUrl]
   description: [ProjectConnectionDescription]
   thumbnail: [ProjectConnectionThumbnail]
+  playStore: [ProjectConnectionPlayStore]
+  appStore: [ProjectConnectionAppStore]
+}
+
+input ProjectInput {
+  order: Int!
+  title: String!
+  type: String!
+  slug: String!
+  github: String
+  url: String
+  description: String!
+  screenshots: [ID]
+  thumbnail: ID
+  tags: [ID]
+  playStore: String
+  appStore: String
 }
 
 type Query {
@@ -308,6 +495,15 @@ type Query {
   user(id: ID!): UsersPermissionsUser
   users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
   usersConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsUserConnection
+  me: UsersPermissionsMe
+}
+
+input RoleInput {
+  name: String!
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
 }
 
 type Tag {
@@ -361,6 +557,72 @@ type TagGroupBy {
   title: [TagConnectionTitle]
   slug: [TagConnectionSlug]
 }
+
+input TagInput {
+  title: String!
+  slug: String!
+  projects: [ID]
+}
+
+input updateArticleInput {
+  where: InputID
+  data: ArticleInput
+}
+
+type updateArticlePayload {
+  article: Article
+}
+
+input updateJobInput {
+  where: InputID
+  data: JobInput
+}
+
+type updateJobPayload {
+  job: Job
+}
+
+input updateProjectInput {
+  where: InputID
+  data: ProjectInput
+}
+
+type updateProjectPayload {
+  project: Project
+}
+
+input updateRoleInput {
+  where: InputID
+  data: RoleInput
+}
+
+type updateRolePayload {
+  role: UsersPermissionsRole
+}
+
+input updateTagInput {
+  where: InputID
+  data: TagInput
+}
+
+type updateTagPayload {
+  tag: Tag
+}
+
+input updateUserInput {
+  where: InputID
+  data: UserInput
+}
+
+type updateUserPayload {
+  user: UsersPermissionsUser
+}
+
+"""
+The `Upload` scalar type represents a file upload promise that resolves an
+object containing `stream`, `filename`, `mimetype` and `encoding`.
+"""
+scalar Upload
 
 type UploadFile {
   _id: ID!
@@ -456,6 +718,31 @@ type UploadFileGroupBy {
   provider: [UploadFileConnectionProvider]
 }
 
+input UserInput {
+  username: String!
+  email: String!
+  provider: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+}
+
+type UsersPermissionsMe {
+  _id: ID!
+  username: String!
+  email: String!
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsMeRole
+}
+
+type UsersPermissionsMeRole {
+  _id: ID!
+  name: String!
+  description: String
+  type: String
+}
+
 type UsersPermissionsPermission {
   _id: ID!
   type: String!
@@ -516,7 +803,7 @@ type UsersPermissionsUser {
   _id: ID!
   username: String!
   email: String!
-  resetPasswordToken: String
+  provider: String
   confirmed: Boolean
   blocked: Boolean
   role: UsersPermissionsRole
@@ -552,7 +839,7 @@ type UsersPermissionsUserConnectionEmail {
   connection: UsersPermissionsUserConnection
 }
 
-type UsersPermissionsUserConnectionResetPasswordToken {
+type UsersPermissionsUserConnectionProvider {
   key: String
   connection: UsersPermissionsUserConnection
 }
@@ -571,7 +858,7 @@ type UsersPermissionsUserGroupBy {
   _id: [UsersPermissionsUserConnection_id]
   username: [UsersPermissionsUserConnectionUsername]
   email: [UsersPermissionsUserConnectionEmail]
-  resetPasswordToken: [UsersPermissionsUserConnectionResetPasswordToken]
+  provider: [UsersPermissionsUserConnectionProvider]
   confirmed: [UsersPermissionsUserConnectionConfirmed]
   blocked: [UsersPermissionsUserConnectionBlocked]
   role: [UsersPermissionsUserConnectionRole]
