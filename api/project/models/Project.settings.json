@@ -40,17 +40,27 @@
     "screenshots": {
       "collection": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     },
     "thumbnail": {
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     },
     "tags": {
       "collection": "tag",
       "via": "projects",
       "dominant": true
+    },
+    "playStore": {
+      "default": "",
+      "type": "string"
+    },
+    "appStore": {
+      "default": "",
+      "type": "string"
     }
   }
 }
