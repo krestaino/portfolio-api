@@ -196,6 +196,7 @@ input FileInput {
   size: String!
   url: String!
   provider: String!
+  public_id: String
   related: [ID]
 }
 
@@ -316,7 +317,7 @@ The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://
 """
 scalar JSON
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Article | createArticlePayload | updateArticlePayload | deleteArticlePayload | ArticleConnection | ArticleAggregator | ArticleGroupBy | ArticleConnection_id | ArticleConnectionCreatedAt | ArticleConnectionUpdatedAt | ArticleConnectionTitle | ArticleConnectionBody | ArticleConnectionPublishAt | ArticleConnectionTeaserText | ArticleConnectionImage | ArticleConnectionSlug | Job | createJobPayload | updateJobPayload | deleteJobPayload | JobConnection | JobAggregator | JobAggregatorSum | JobAggregatorAvg | JobAggregatorMin | JobAggregatorMax | JobGroupBy | JobConnection_id | JobConnectionCreatedAt | JobConnectionUpdatedAt | JobConnectionTitle | JobConnectionCompany | JobConnectionLocation | JobConnectionFrom | JobConnectionTo | JobConnectionOrder | Project | createProjectPayload | updateProjectPayload | deleteProjectPayload | ProjectConnection | ProjectAggregator | ProjectGroupBy | ProjectConnection_id | ProjectConnectionCreatedAt | ProjectConnectionUpdatedAt | ProjectConnectionOrder | ProjectConnectionTitle | ProjectConnectionType | ProjectConnectionSlug | ProjectConnectionGithub | ProjectConnectionUrl | ProjectConnectionDescription | ProjectConnectionThumbnail | ProjectConnectionPlayStore | ProjectConnectionAppStore | Tag | createTagPayload | updateTagPayload | deleteTagPayload | TagConnection | TagAggregator | TagGroupBy | TagConnection_id | TagConnectionCreatedAt | TagConnectionUpdatedAt | TagConnectionTitle | TagConnectionSlug | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | Article | createArticlePayload | updateArticlePayload | deleteArticlePayload | ArticleConnection | ArticleAggregator | ArticleGroupBy | ArticleConnection_id | ArticleConnectionCreatedAt | ArticleConnectionUpdatedAt | ArticleConnectionTitle | ArticleConnectionBody | ArticleConnectionPublishAt | ArticleConnectionTeaserText | ArticleConnectionImage | ArticleConnectionSlug | Job | createJobPayload | updateJobPayload | deleteJobPayload | JobConnection | JobAggregator | JobAggregatorSum | JobAggregatorAvg | JobAggregatorMin | JobAggregatorMax | JobGroupBy | JobConnection_id | JobConnectionCreatedAt | JobConnectionUpdatedAt | JobConnectionTitle | JobConnectionCompany | JobConnectionLocation | JobConnectionFrom | JobConnectionTo | JobConnectionOrder | Project | createProjectPayload | updateProjectPayload | deleteProjectPayload | ProjectConnection | ProjectAggregator | ProjectGroupBy | ProjectConnection_id | ProjectConnectionCreatedAt | ProjectConnectionUpdatedAt | ProjectConnectionOrder | ProjectConnectionTitle | ProjectConnectionType | ProjectConnectionSlug | ProjectConnectionGithub | ProjectConnectionUrl | ProjectConnectionDescription | ProjectConnectionThumbnail | ProjectConnectionPlayStore | ProjectConnectionAppStore | Tag | createTagPayload | updateTagPayload | deleteTagPayload | TagConnection | TagAggregator | TagGroupBy | TagConnection_id | TagConnectionCreatedAt | TagConnectionUpdatedAt | TagConnectionTitle | TagConnectionSlug | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionPublic_id | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole
 
 type Mutation {
   createArticle(input: createArticleInput): createArticlePayload
@@ -636,6 +637,7 @@ type UploadFile {
   size: String!
   url: String!
   provider: String!
+  public_id: String
   related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
 }
 
@@ -684,6 +686,11 @@ type UploadFileConnectionProvider {
   connection: UploadFileConnection
 }
 
+type UploadFileConnectionPublic_id {
+  key: String
+  connection: UploadFileConnection
+}
+
 type UploadFileConnectionSha256 {
   key: String
   connection: UploadFileConnection
@@ -716,6 +723,7 @@ type UploadFileGroupBy {
   size: [UploadFileConnectionSize]
   url: [UploadFileConnectionUrl]
   provider: [UploadFileConnectionProvider]
+  public_id: [UploadFileConnectionPublic_id]
 }
 
 input UserInput {
